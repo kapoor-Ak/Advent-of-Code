@@ -22,7 +22,8 @@ safe_flag <- function(report){
 
 part_1 <- map(input[!is.na(input)],\(x) safe_flag(x)) |> unlist() |> sum()
 #651 - wrong, should be 606
-Fix
+#Fix
 input |> mutate( 
   Diff = map(diff),
   Monotonous_Flag <- all(sign(Diff)==1) | all(sign(Diff)==-1))
+
