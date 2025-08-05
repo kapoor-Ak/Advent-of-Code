@@ -4,9 +4,6 @@ library(tidyverse)
 raw_input <- get_aoc(2) |> str_split("\n") |> pluck(1)
 
 input <- map(raw_input,\(x) str_split(x," ") |> unlist()|>  as.numeric())
-temp <- input |> pluck(1) |> unlist()
-map(seq(1,length(temp)-1),\(x) temp[x+1]-temp[x]) |> unlist() 
-map(seq_along(temp),\(x) temp[x]-temp[x-1]) |> unlist()
 
 safe_flag <- function(report){
   #adjacent diffs
@@ -18,7 +15,6 @@ safe_flag <- function(report){
   if(max(abs(Diff))<=3 & min(abs(Diff))>=1){Adj_Flag <- TRUE}  else{Adj_Flag <- FALSE}
   return(Monotonous_Flag*Adj_Flag)
 }
-
 
 part_1 <- map(input[!is.na(input)],\(x) safe_flag(x)) |> unlist() |> sum()
 #606
