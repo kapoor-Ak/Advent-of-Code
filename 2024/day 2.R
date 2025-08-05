@@ -15,15 +15,10 @@ safe_flag <- function(report){
   Monotonous_Flag <- all(sign(Diff)==1) | all(sign(Diff)==-1)
   
   #adjacent level diff where 3 => x >= 1
-  if(max(Diff)<=3 & min(Diff)){Adj_Flag <- TRUE}  else{Adj_Flag <- FALSE}
+  if(max(abs(Diff))<=3 & min(abs(Diff))>=1){Adj_Flag <- TRUE}  else{Adj_Flag <- FALSE}
   return(Monotonous_Flag*Adj_Flag)
 }
 
 
 part_1 <- map(input[!is.na(input)],\(x) safe_flag(x)) |> unlist() |> sum()
-#651 - wrong, should be 606
-#Fix
-input |> mutate( 
-  Diff = map(diff),
-  Monotonous_Flag <- all(sign(Diff)==1) | all(sign(Diff)==-1))
-
+#606
