@@ -32,3 +32,7 @@ Index <- part2_func(raw_input)
 part_2  <- map(1:nrow(Index),\(x) str_sub(raw_input,Index[x,"start"],Index[x,"end"]) |>regex_extract()) |> bind_rows() |> 
   select(mult) |> sum()
 #>85508223
+
+#Notes for improvement
+#> Learn how to use "Look-Arounds" and "Alternates" in the stringr package
+#> didnt need to create a data frame for the 1st part could have just added one more str_extract() on temp and to get prod() there
