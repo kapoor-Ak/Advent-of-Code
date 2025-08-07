@@ -1,4 +1,4 @@
-source("get_aoc_input.R")
+source("get_aoc_input.R") # solution incomplete to fix
 library(tidyverse)
 library(R6)
 
@@ -104,4 +104,5 @@ vertical(temp)
 fwd(temp)
 bwd(temp)
 horizontal(temp)+vertical(temp)+fwd(temp)+bwd(temp)
+
 
