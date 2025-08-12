@@ -22,9 +22,7 @@ bwd <- function(df){#\
 fwd <- function(df){
   df |> apply(2,rev)|> t() |> bwd()
 }
-horizontal(temp)
-vertical(temp)
-fwd(temp)
-bwd(temp)
+
 part1 <- horizontal(temp)+vertical(temp)+fwd(temp)+bwd(temp) #2496
+
 
