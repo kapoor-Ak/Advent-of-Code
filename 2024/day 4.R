@@ -15,7 +15,8 @@ bwd <- function(df){#\
   map(idx,\(x) df[x]|> str_flatten()|> str_extract_all(pattern=c("XMAS","SAMX")))|> unlist() |>na.omit()|> length()
       }
 fwd <- function(df){ df |> apply(2,rev)|> t() |> bwd()}
-#part2 The current way is slow as it creates all possible 3x3 and checks it, may be able to find a better way in future
+#part2 The current way is slow as it creates all possible 3x3 matrices and checks it, may be able to find a better way in future
+
 X_mas <- function(df){
   all(c(any(diag(df) |> str_flatten() |>  str_detect(,pattern=c("MAS","SAM"))==1),
         any(df |> t() |> apply(2,rev) |> diag()|> str_flatten() |> str_detect(,pattern=c("MAS","SAM"))==1))==1)
@@ -28,4 +29,3 @@ part2_func <- function(df){
 
 part1 <- horizontal(input)+vertical(input)+fwd(input)+bwd(input) #2496
 part2 <- part2_func(input) #1967
-
