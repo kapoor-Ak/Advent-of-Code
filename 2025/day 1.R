@@ -1,21 +1,9 @@
 source("get_aoc_input.R")
 library(tidyverse)
 
-
-
 data <- get_aoc(1) |>str_extract_all("[^\\n]+") |> unlist()
-temp <- "L68
-L30
-R48
-L5
-R60
-L55
-L1
-L99
-R14
-L82"|>str_extract_all("[^\\n]+") |> unlist()
 
-#temp <- data[1120:1135]
+
 remainder <- function(a,b,sign_x){
   t <- a +b*sign_x
   status <-  (t/100 - trunc(t/100))*100
@@ -57,4 +45,5 @@ part1 <- output[1];part1
 part2 <- output[2];part2
 
 #6,223
+
 
