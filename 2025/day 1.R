@@ -36,7 +36,6 @@ f <- function(t){
 }
 
 output <- f(data)
-# part 1
 
 part1 <- output[1];part1
 
