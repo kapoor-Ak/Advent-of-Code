@@ -4,7 +4,7 @@ library(tidyverse)
 data <- get_aoc(1) |>str_extract_all("[^\\n]+") |> unlist()
 
 remainder <- function(a,b,sign_x){
-  t <- a +b*sign_x |> round(2)
+  t <- a +b*sign_x
   #deals with both +ve and -ve numbers
   status <-  ((t %% 100) + 100) %% 100
   # Right (1): Count how many 100s we passed. 
@@ -44,4 +44,5 @@ part1 <- output[1];part1
 part2 <- output[2];part2
 
 #6,223
+
 
